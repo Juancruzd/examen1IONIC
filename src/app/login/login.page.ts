@@ -47,7 +47,7 @@ export class LoginPage implements OnInit {
         ///si el login es true se abre la ventana
         console.log(res);
         if(res){
-        this.router.navigateByUrl('/board');
+        this.router.navigateByUrl('/members');
         }
       }, err =>{
         console.log(err);
