@@ -6,11 +6,12 @@ import * as firebase from 'firebase/app';
 })
 export class AuthService {
   public isLoggedIn=false;
-
+  public email="";
   constructor(public ofAuth: AngularFireAuth) { 
     ofAuth.authState.subscribe(auth  =>{
       if (auth) {
         console.log('DENTRO!!');
+        //console.log(auth);
         this.isLoggedIn = true;
         return;
      }
@@ -76,14 +77,14 @@ export class AuthService {
     else{
       console.log("no esta logueado")
     }**/
-    return await new Promise((resolve, reject) => {
-      if(firebase.auth().currentUser){
-        this.ofAuth.auth.currentUser;
-        resolve();
-      }
-      else{
-        reject();
-      }
-    });
+      
+    this.ofAuth.authState.subscribe(auth  =>{
+        if (auth) { 
+          return auth.email;
+       }
+       else{
+        return "";
+       }
+      }); 
   }
 }

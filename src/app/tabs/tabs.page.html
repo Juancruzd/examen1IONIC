@@ -1,3 +1,18 @@
+<ion-header> 
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="secondary"> 
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button fill="solid" color="secondary" (click)="logout()">
+        Cerrar sesion
+        <ion-icon slot="end" name="log-in-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ email }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
 <ion-tabs>
 
   <ion-tab-bar slot="bottom">

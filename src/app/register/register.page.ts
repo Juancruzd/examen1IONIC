@@ -45,7 +45,8 @@ export class RegisterPage implements OnInit {
         ///si el login es true se abre la ventana
         console.log(res);
         if(res){
-          this.router.navigateByUrl('/members');
+          this.myForm.reset();
+          this.router.navigateByUrl('/');
         }
       }, async err =>{
         console.log(err);
