@@ -11,9 +11,9 @@
               <ion-label position="floating">Correo</ion-label>
               <ion-input formControlName="email" style="width: 258px;" clearInput> </ion-input>
             </ion-item>
-            <ion-item *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
-              <p color="danger" ion-text *ngIf="myForm.get('email').hasError('required')">Se requiere el correo</p>
-              <p color="danger" ion-text *ngIf="myForm.get('email').hasError('email')">Correo incorrecto</p>
+            <ion-item *ngIf="f.email.errors && f.email.dirty">
+              <p color="danger" ion-text *ngIf="f.email.errors.required">Se requiere el correo</p>
+              <p color="danger" ion-text *ngIf="f.email.errors.email">Correo incorrecto</p>
             </ion-item>
 
           <ion-item style="margin-top: 20px;" >
@@ -26,9 +26,9 @@
                  </button>
               </div>
             </ion-item>
-            <ion-item *ngIf="myForm.get('password').errors && myForm.get('password').dirty">
-              <p color="danger" ion-text *ngIf="myForm.get('password').hasError('required')">Se requiere la contrasena</p>
-              <p color="danger" ion-text *ngIf="myForm.get('password').hasError('pattern')">La Contrasena es debil</p>
+            <ion-item *ngIf="f.password.errors && f.password.dirty">
+              <p color="danger" ion-text *ngIf="f.password.errors.required">Se requiere la contrasena</p>
+            <p color="danger" ion-text *ngIf="f.password.errors.pattern">La Contrasena es debil</p>
             </ion-item>
 
           </ion-list>
