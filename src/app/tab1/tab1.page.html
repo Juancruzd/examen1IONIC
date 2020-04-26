@@ -1,8 +1,4 @@
-
-
-
- 
-<ion-content class="ion-padding" [fullscreen]="true">
+<!--ion-content class="ion-padding" [fullscreen]="true">
   <ion-grid padding="true" class="page-centered-element"  >
   <ion-row>
     <ion-col size="12" size-sm="12" size-md="6"  size-lg="6"  size-xl="6"  class="img-num">
@@ -18,7 +14,35 @@
       <img   src="{{cuatro}}" (click)="cuatroplay();">
     </ion-col>
   </ion-row>
-</ion-grid>
+</ion-grid> 
+</ion-content>-->
+<ion-header>
+  <ion-toolbar class="ios hydrated"> 
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list class="ios list-ios hydrated">
+    <ion-list-header class="ios hydrated">
+      Contactos
+    </ion-list-header>
 
- 
-</ion-content>
+    <ion-item *ngFor="let Contact of Contacts" class="user-list">
+      <ion-label>
+        <h5>
+          <ion-icon name="person"></ion-icon> {{Contact.name}}
+        </h5>
+        <p>
+          <ion-icon name="call"></ion-icon> {{Contact.mobile}}
+        </p>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/tabs/tab3/', Contact.$key]">
+          <ion-icon name="create" style="zoom:2.0"></ion-icon>
+        </button>
+        <button ion-button clear (click)="deleteContact(Contact.$key)">
+          <ion-icon name="trash" style="zoom:2.0"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>

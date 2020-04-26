@@ -33,7 +33,8 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab3',
+        ////:id para poder concatenar el id del usuario a actualizar
+        path: 'tab3/:id',
         children: [
           {
             path: '',

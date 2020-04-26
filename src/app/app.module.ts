@@ -11,7 +11,10 @@ import { AppComponent } from './app.component';
 ///se gregan las librerias o complementos de firebase asi como las firebaseConfig del proyecto
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from './../environments/environment';
+import { environment } from './../environments/environment'; 
+///agrego la libreria de base de datos de firebase
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 
 @NgModule({
@@ -19,8 +22,11 @@ import { environment } from './../environments/environment';
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
       //inicializar nuestra conexion o aplicacion de firebase con sus configuraciones
-      AngularFireModule.initializeApp(environment.firebaseConfig),
-      AngularFireAuthModule],
+      AngularFireModule.initializeApp(environment.firebaseConfig),///configuration firebase
+      AngularFireAuthModule,///auth
+      AngularFireDatabaseModule,///database
+      AngularFireStorageModule///database
+    ],
   providers: [
     StatusBar,
     SplashScreen,

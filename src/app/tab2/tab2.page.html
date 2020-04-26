@@ -1,8 +1,4 @@
-
-
-
- 
-<ion-content class="ion-padding" [fullscreen]="true">
+<!--ion-content class="ion-padding" [fullscreen]="true">
   <ion-content class="ion-padding" [fullscreen]="true">
     <ion-grid padding="true" class="page-centered-element"  >
     <ion-row>
@@ -19,7 +15,47 @@
         <img   src="{{o}}" (click)="oplay();">
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid> 
+</ion-content>-->
+<ion-header>
+  <ion-toolbar class="ios hydrated"> 
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-list lines="full">
+    <form [formGroup]="ContactForm">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="name" type="text"  clearInput></ion-input>
+      </ion-item>
+      <ion-item *ngIf="f.name.errors && f.name.dirty">
+        <p color="danger" ion-text *ngIf="f.name.errors.required">Se requiere el Nombre</p>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input formControlName="email" type="text" clearInput>
+        </ion-input>
+      </ion-item>
+      <ion-item *ngIf="f.email.errors && f.email.dirty">
+        <p color="danger" ion-text *ngIf="f.email.errors.required">Se requiere el correo</p>
+        <p color="danger" ion-text *ngIf="f.email.errors.email">Correo incorrecto</p>
+      </ion-item>
 
- 
+      <ion-item>
+        <ion-label position="floating">Numero de Telefono</ion-label>
+        <ion-input formControlName="mobile" type="number" clearInput>
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="f.mobile.errors && f.mobile.dirty">
+        <p color="danger" ion-text *ngIf="f.mobile.errors.required">Se requiere el Numero de Telefono</p>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block" (click)="formSubmit()" [disabled]="ContactForm.invalid">Crear Contacto</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
 </ion-content>
